@@ -1,14 +1,23 @@
-name: myapplication
+name: CloudChampion
+extensions:
+  - name: dapr
+    log-level: debug
+    components-path: "./dapr/components/"
 services:
-- name: backend
+- name: CloudChampion-Order
   project: Services/CloudChampion.Order/CloudChampion.Order.csproj
-- name: frontend
+- name: CloudChampion-Web
   project: Frontend/CloudChampion.Web/CloudChampion.Web.csproj
-  replicas: 2
-  bindings:
-  - port: 443
-- name: rabbit
-  image: rabbitmq:3-management
-  bindings:
-    - port: 5672
-      protocol: rabbitmq
+  env:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ASPNETCORE_URLS=http://+:80
+# - name: redis
+#   image: redis
+#   bindings:
+#   - port: 6379
+#     connectionString: "${host}:${port}" 
+# - name: rabbit
+#   image: rabbitmq:3-management
+#   bindings:
+#     - port: 5672
+#       protocol: rabbitmq
