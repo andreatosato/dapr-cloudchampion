@@ -1,0 +1,56 @@
+services:
+  cloudchampion-web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  
+  cloudchampion-web-dapr:
+    command: ["./daprd",
+      "-app-id", "cloudchampion-web",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configurations/config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configurations/:/configurations"
+
+  cloudchampion-order-dapr:
+    command: ["./daprd",
+      "-app-id", "cloudchampion-order",
+      "-app-port", "80",
+      "-components-path", "/components",
+      "-config", "/configurations/config.yaml"
+      ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configurations/:/configurations"
+
+  rabbitmq:
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  redis:
+    ports:
+    - "6379:6379"
+  
+  #zipkin:
+  #  ports:
+  #    - "9411:9411"
+
+  otel-collector:
+    command: [
+        "/otelcontribcol",
+        "--config=/etc/otel-collector.yaml"
+    ]
+    volumes:
+      - "./otel/otel-collector.yaml:/etc/otel-collector.yaml"
+    ports:
+      - "9411"

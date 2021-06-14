@@ -1,0 +1,14 @@
+name: myapplication
+services:
+- name: backend
+  project: Services/CloudChampion.Order/CloudChampion.Order.csproj
+- name: frontend
+  project: Frontend/CloudChampion.Web/CloudChampion.Web.csproj
+  replicas: 2
+  bindings:
+  - port: 443
+- name: rabbit
+  image: rabbitmq:3-management
+  bindings:
+    - port: 5672
+      protocol: rabbitmq
