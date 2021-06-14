@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Frontend/CloudChampion.Web/Dockerfile
+    depends_on:
+      - rabbitmq
+      - redis
 
   cloudchampion-web-dapr:
     container_name: cloudchampion-web-dapr
@@ -19,6 +22,9 @@ services:
     build:
       context: .
       dockerfile: Services/CloudChampion.Order/Dockerfile
+    depends_on:
+      - rabbitmq
+      - redis
   
   cloudchampion-order-dapr:
     container_name: cloudchampion-order-dapr

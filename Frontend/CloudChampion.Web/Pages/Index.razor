@@ -1,7 +1,9 @@
 ﻿@page "/"
 @using Services
 @using ViewModels
+@using Microsoft.AspNetCore.SignalR.Client
 @inject OrderService orderService
+@*@inject NavigationManager navigationManager*@
 
 <h3>Order</h3>
 
@@ -45,11 +47,37 @@
     </div>
 }
 
+@if (Events.Count > 0)
+{
+    <table class="table">
+        @foreach (var e in Events)
+        {
+            <tr>
+                <td>@(e.OrderId)</td>
+                <td>@(e.OrderStatus)</td>
+            </tr>
+        }
+    </table>
+}
+
 
 @code {
     public InsertOrderViewModel OrderToInsert { get; set; } = new InsertOrderViewModel();
     private Guid latestOrderId = Guid.Empty;
     public StatusOrderViewModel LatestOrderStatus { get; set; }
+    public List<OrderEvent> Events { get; set; } = new List<OrderEvent>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var url = "http://cloudchampion-web/notification";
+        var connection = new HubConnectionBuilder()
+            .WithUrl(url)
+            .WithAutomaticReconnect()
+            .Build();
+        connection.On<OrderEvent>("orderstatus", OnOrderStatus);
+        connection.On<OrderEvent>("orderprocessed", OnOrderProcessed);
+        await connection.StartAsync();
+    }
 
     public async Task OrderAsync()
     {
@@ -65,5 +93,17 @@
             LatestOrderStatus = await orderService.GetStatusOrder(latestOrderId);
             StateHasChanged();
         }
+    }
+
+    private async Task OnOrderProcessed(OrderEvent @event)
+    {
+        Events.Add(@event);
+        StateHasChanged();
+    }
+
+    private async Task OnOrderStatus(OrderEvent @event)
+    {
+        Events.Add(@event);
+        StateHasChanged();
     }
 }

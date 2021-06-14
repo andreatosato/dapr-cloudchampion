@@ -54,12 +54,11 @@ namespace CloudChampion.Order.Controllers
         private async Task NotifyOrderStatus(Guid orderId, OrderStatus status)
         {
             var @event = new OrderEvent(orderId, status);
-            await daprClient.PublishEventAsync("pubsub", "orderstatus", @event, HttpContext.RequestAborted);
+            await daprClient.PublishEventAsync("pubsub", "orderstatus", (dynamic)@event, HttpContext.RequestAborted);
         }
 
         private async Task LogicAsync(Guid orderId)
         {
-            await NotifyOrderStatus(orderId, OrderStatus.Created);
             await Task.Delay(3_000);
             await NotifyOrderStatus(orderId, OrderStatus.ProcessingAvailabilityInStock);
             await Task.Delay(10_000);
