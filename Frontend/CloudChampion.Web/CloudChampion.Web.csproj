@@ -8,6 +8,7 @@
     <PackageReference Include="Dapr.AspNetCore" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.7" />
+    <PackageReference Include="Microsoft.Tye.Extensions.Configuration" Version="0.7.0-alpha.21279.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
   </ItemGroup>
 

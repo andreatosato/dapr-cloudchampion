@@ -1,5 +1,7 @@
-{"container":"placement_07fb9d69-2"}
-{"container":"cloudchampion-order-proxy_cfb04462-e"}
-{"container":"cloudchampion-web-proxy_28b72db0-2"}
-{"container":"cloudchampion-order-dapr-proxy_bc0c8ca8-f"}
-{"container":"cloudchampion-web-dapr-proxy_cfa01d15-e"}
+{"container":"redis_18b34231-2"}
+{"container":"rabbit_e20fc14f-d"}
+{"container":"placement_2edf8b69-c"}
+{"container":"cloudchampion-web-proxy_b3b9c29f-8"}
+{"container":"cloudchampion-order-proxy_c1b014cf-c"}
+{"container":"cloudchampion-web-dapr-proxy_4a9d0e0c-b"}
+{"container":"cloudchampion-order-dapr-proxy_6f5c10af-f"}
