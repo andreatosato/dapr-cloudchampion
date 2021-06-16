@@ -1,23 +1,29 @@
-name: CloudChampion
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: cloudchampion
 extensions:
-  - name: dapr
-    log-level: debug
-    components-path: "./dapr/components/"
+   - name: dapr
+     log-level: debug
+     components-path: "./dapr/components/"
 services:
-- name: CloudChampion-Order
-  project: Services/CloudChampion.Order/CloudChampion.Order.csproj
-- name: CloudChampion-Web
+- name: cloudchampion-web
   project: Frontend/CloudChampion.Web/CloudChampion.Web.csproj
   env:
-    - ASPNETCORE_ENVIRONMENT=Development
-    - ASPNETCORE_URLS=http://+:80
-# - name: redis
-#   image: redis
-#   bindings:
-#   - port: 6379
-#     connectionString: "${host}:${port}" 
-# - name: rabbit
-#   image: rabbitmq:3-management
-#   bindings:
-#     - port: 5672
-#       protocol: rabbitmq
+  - ASPNETCORE_ENVIRONMENT=Development
+  - ASPNETCORE_URLS=http://+:80
+- name: cloudchampion-order
+  project: Services/CloudChampion.Order/CloudChampion.Order.csproj
+- name: redis
+  image: redis
+  bindings:
+  - port: 6379
+    connectionString: "${host}:${port}" 
+- name: rabbit
+  image: rabbitmq:3-management
+  bindings:
+    - port: 5672
+      protocol: rabbitmq
