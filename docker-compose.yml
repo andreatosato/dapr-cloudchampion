@@ -48,6 +48,10 @@ services:
     container_name: zipkin
     image: openzipkin/zipkin-slim
 
+  jeager:
+    container_name: jeager
+    image: jaegertracing/all-in-one:1.23
+
   otel-collector:
     container_name: otel-collector
     image: otel/opentelemetry-collector-contrib-dev:latest

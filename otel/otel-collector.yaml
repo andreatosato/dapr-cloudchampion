@@ -19,9 +19,12 @@ exporters:
     # maxbatchinterval is the maximum time to wait before calling
     # the configured endpoint.
     maxbatchinterval: 10s
+  jaeger_thrift:
+    url: "http://jeager:14268/api/traces"
+    
 service:
   extensions: [pprof, zpages, health_check]
   pipelines:
     traces:
       receivers: [zipkin]
-      exporters: [azuremonitor,logging]
+      exporters: [azuremonitor,jaeger_thrift]

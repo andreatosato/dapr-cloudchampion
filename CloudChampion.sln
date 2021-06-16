@@ -5,9 +5,15 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudChampion.Web", "Frontend\CloudChampion.Web\CloudChampion.Web.csproj", "{BB4BACEE-5A44-42F5-845B-A63B4ED82BC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudChampion.Order", "Services\CloudChampion.Order\CloudChampion.Order.csproj", "{0398D5E1-759D-4F15-BB01-5E2FEF0409F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudChampion.Order", "Services\CloudChampion.Order\CloudChampion.Order.csproj", "{0398D5E1-759D-4F15-BB01-5E2FEF0409F3}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5BF642E0-935F-44A5-9185-D9CF29A615A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{78060583-E822-461C-970A-985A9E8C5080}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\configurations\config.yaml = dapr\configurations\config.yaml
+		otel\otel-collector.yaml = otel\otel-collector.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

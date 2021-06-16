@@ -37,9 +37,14 @@ services:
     ports:
     - "6379:6379"
   
-  #zipkin:
-  #  ports:
-  #    - "9411:9411"
+  zipkin:
+    ports:
+      - "9411:9411"
+
+  jeager:
+    ports:
+    - 14268:14268
+    - 16686:16686
 
   otel-collector:
     command: [
