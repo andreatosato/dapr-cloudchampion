@@ -3,7 +3,7 @@
 @using ViewModels
 @using Microsoft.AspNetCore.SignalR.Client
 @inject OrderService orderService
-@*@inject NavigationManager navigationManager*@
+@inject ServiceResolution serviceResolution
 
 <h3>Order</h3>
 
@@ -69,7 +69,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var url = "http://cloudchampion-web/notification";
+        var url = serviceResolution.Web + "notification"; // "http://cloudchampion-web/notification";
         var connection = new HubConnectionBuilder()
             .WithUrl(url)
             .WithAutomaticReconnect()

@@ -25,6 +25,7 @@ namespace CloudChampion.Web
             services.AddServerSideBlazor();
             services.AddSingleton<OrderService>();
             services.AddSignalR();
+            services.AddScoped<ServiceResolution>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
