@@ -1,7 +1,8 @@
-{"container":"redis_030752ae-e"}
-{"container":"rabbit_f4d3087d-5"}
-{"container":"placement_be6e6315-a"}
-{"container":"cloudchampion-web-proxy_d1ef2eaf-a"}
-{"container":"cloudchampion-order-proxy_a425be7a-7"}
-{"container":"cloudchampion-web-dapr-proxy_d7c5f48b-3"}
-{"container":"cloudchampion-order-dapr-proxy_f623a725-d"}
+{"container":"redis_b6e658bd-d"}
+{"container":"rabbit_8e8bc420-e"}
+{"container":"otel-collector_52280e4a-4"}
+{"container":"placement_d8db2c86-b"}
+{"container":"cloudchampion-web-proxy_7fbbd52e-b"}
+{"container":"cloudchampion-order-proxy_585f49a8-d"}
+{"container":"cloudchampion-web-dapr-proxy_c41f798b-d"}
+{"container":"cloudchampion-order-dapr-proxy_26db1ebd-2"}
