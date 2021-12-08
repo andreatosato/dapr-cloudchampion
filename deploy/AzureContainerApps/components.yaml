@@ -1,0 +1,16 @@
+- name: pubsub
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    value: "Endpoint=sb://containerappstosato.servicebus.windows.net/;SharedAccessKeyName=Full;SharedAccessKey=4SjXr1REKwv4pBN0SpaFmFU35KAOqOf3u7P+tJthevA=;EntityPath=dapr"
+- name: state-managment
+  type: state.azure.blobstorage
+  version: v1
+  metadata:
+  - name: accountName
+    value: "containerappstosato"
+  - name: accountKey
+    value: "d2N5WEBdcdfCcBJzd8LyOLK4DJg8V/N6Fj8b2F8ojadoyTKNQHHF2nmqjiVyoJPhgFYfN6JaSExwIxfRL0fqmg=="
+  - name: containerName
+    value: "dapr"

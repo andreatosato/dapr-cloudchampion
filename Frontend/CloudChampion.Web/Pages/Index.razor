@@ -1,9 +1,10 @@
 ﻿@page "/"
+@using Microsoft.Extensions.Configuration
 @using Services
 @using ViewModels
 @using Microsoft.AspNetCore.SignalR.Client
 @inject OrderService orderService
-@*@inject NavigationManager navigationManager*@
+@inject IConfiguration config
 
 <h3>Order</h3>
 
@@ -69,7 +70,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var url = "http://cloudchampion-web/notification";
+        var url = config.GetValue<string>("urlNotification");
         var connection = new HubConnectionBuilder()
             .WithUrl(url)
             .WithAutomaticReconnect()
