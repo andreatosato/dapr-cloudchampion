@@ -39,12 +39,14 @@ $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GR
 #az storage file copy start --source-account-name STORAGE_ACCOUNT --source-account-key $STORAGE_ACCOUNT_KEY --source-path components.yaml --destination-path components.yaml
 # Copiare il file dei componenti sullo storage! Un file per tutti i componenti
 
-
+# I believe you need to change this to use the root connection string on the SB instance - dapr will autocreate the topic if it doesn't exist and needs permissions on the sb instance itself not just the topic 
+$SB_CONNECTIONSTRING="Endpoint=sb://containerappstosato.servicebus.windows.net/;SharedAccessKeyName=Full;SharedAccessKey=4SjXr1REKwv4pBN0SpaFmFU35KAOqOf3u7P+tJthevA=;EntityPath=dapr"
 # Deploy app:
 az containerapp create `
   --name web `
   --resource-group $RESOURCE_GROUP `
   --environment $CONTAINERAPPS_ENVIRONMENT `
+  --secrets "accountkey=$STORAGE_ACCOUNT_KEY,connectionstring=$SB_CONNECTIONSTRING" `
   --registry-login-server $ACR `
   --registry-username $ACR_Login `
   --registry-password $ACR_Password `
@@ -63,6 +65,7 @@ az containerapp create `
   --name order `
   --resource-group $RESOURCE_GROUP `
   --environment $CONTAINERAPPS_ENVIRONMENT `
+  --secrets "accountkey=$STORAGE_ACCOUNT_KEY,connectionstring=$SB_CONNECTIONSTRING" `
   --registry-login-server $ACR `
   --registry-username $ACR_Login `
   --registry-password $ACR_Password `
