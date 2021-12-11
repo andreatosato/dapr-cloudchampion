@@ -1,0 +1,27 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+  namespace: default
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    value: Endpoint=sb://containerappstosato.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5GsREAqb3FNDinAJDWGXHZsdnCsgskleOIeg9p3ivKM=
+---
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: state-managment
+  namespace: default
+spec:
+  type: state.azure.blobstorage
+  version: v1
+  metadata:
+  - name: accountName
+    value: "containerappstosato"
+  - name: accountKey
+    value: d2N5WEBdcdfCcBJzd8LyOLK4DJg8V/N6Fj8b2F8ojadoyTKNQHHF2nmqjiVyoJPhgFYfN6JaSExwIxfRL0fqmg==
+  - name: containerName
+    value: "dapr"
