@@ -47,7 +47,7 @@ az containerapp create `
   --registry-login-server $ACR `
   --registry-username $ACR_Login `
   --registry-password $ACR_Password `
-  --image $ACR/web:test `
+  --image $ACR/web:az `
   --target-port 80 `
   --ingress 'external' `
   --min-replicas 1 `
@@ -66,7 +66,7 @@ az containerapp create `
   --registry-login-server $ACR `
   --registry-username $ACR_Login `
   --registry-password $ACR_Password `
-  --image $ACR/order:test `
+  --image $ACR/order:az `
   --min-replicas 1 `
   --max-replicas 1 `
   --enable-dapr `

@@ -1,0 +1,2 @@
+az acr build -t web:az -r containerappstosato -f Frontend/CloudChampion.Web/Dockerfile .
+az acr build -t order:az -r containerappstosato -f Services/CloudChampion.Order/Dockerfile .
