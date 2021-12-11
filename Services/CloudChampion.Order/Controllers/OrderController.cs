@@ -13,7 +13,7 @@ namespace CloudChampion.Order.Controllers
         private readonly ILogger<OrderController> _logger;
         private readonly DaprClient daprClient;
         private string orderKey(Guid orderId) => $"OrderProcessing-{orderId}";
-        private const string stateManagmentName = "state-managment";
+        private const string stateManagmentName = "state-management";
 
         public OrderController(ILogger<OrderController> logger, DaprClient daprClient)
         {

@@ -13,7 +13,7 @@ spec:
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: state-managment
+  name: state-management
   namespace: default
 spec:
   type: state.azure.blobstorage
