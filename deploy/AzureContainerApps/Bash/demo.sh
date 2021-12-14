@@ -15,7 +15,7 @@ export BLOB_CONTAINER_CAPPS="orders$UNIQUE_SUFFIX_CAPPS"
 # run the saveenv.sh script at any time to save environment variables created above to capps.env
 # deploy/AzureContainerApps/bash/saveenv.sh
 # run this command to access the saved environment variables 
-# source deploy/AzureContainerApps/bash/capps.env
+# source capps.env
 
 # Login to Azure and set appropriate subscription 
 az login
