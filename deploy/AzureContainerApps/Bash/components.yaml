@@ -1,0 +1,16 @@
+- name: pubsub
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    secretRef: connectionstring
+- name: state-management
+  type: state.azure.blobstorage
+  version: v1
+  metadata:
+  - name: accountName
+    value: "<storage-account-name>"
+  - name: accountKey
+    secretRef: accountkey
+  - name: containerName
+    value: "<blob-container-name>"
