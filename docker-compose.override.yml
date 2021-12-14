@@ -46,12 +46,12 @@ services:
     - 14268:14268
     - 16686:16686
 
-  otel-collector:
-    command: [
-        "/otelcontribcol",
-        "--config=/etc/otel-collector.yaml"
-    ]
-    volumes:
-      - "./otel/otel-collector.yaml:/etc/otel-collector.yaml"
-    ports:
-      - "9411"
+  #otel-collector:
+  #  command: [
+  #      "/otelcontribcol",
+  #      "--config=/etc/otel-collector.yaml"
+  #  ]
+  #  volumes:
+  #    - "./otel/otel-collector.yaml:/etc/otel-collector.yaml"
+  #  ports:
+  #    - "9411"
