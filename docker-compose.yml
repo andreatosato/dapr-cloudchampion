@@ -11,7 +11,7 @@ services:
 
   cloudchampion-web-dapr:
     container_name: cloudchampion-web-dapr
-    image: "dmitsh/daprd:dev-rmq-linux-amd64"
+    image: "dmitsh/daprd:dev-rmq1-linux-amd64"
     network_mode: "service:cloudchampion-web"
     depends_on:
       - cloudchampion-web
@@ -28,7 +28,7 @@ services:
   
   cloudchampion-order-dapr:
     container_name: cloudchampion-order-dapr
-    image: "dmitsh/daprd:dev-rmq-linux-amd64"
+    image: "dmitsh/daprd:dev-rmq1-linux-amd64"
     network_mode: "service:cloudchampion-order"
     depends_on:
       - cloudchampion-order
